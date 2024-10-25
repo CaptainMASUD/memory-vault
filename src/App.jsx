@@ -1,18 +1,11 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react'
+import Header from './Components/Navbar/Header'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-     <div>
-      <h1>Tahirt site is in under maintainance</h1>
-     </div>
-       
-    </>
+    <div>
+      <Header/>
+    </div>
   )
 }
 
