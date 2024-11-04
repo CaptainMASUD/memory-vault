@@ -4,7 +4,7 @@ import { FaQuoteLeft, FaQuoteRight } from 'react-icons/fa';
 
 function Title() {
   const title = "Memory Vault";
-  const quote = "Life goes with friends";
+  const quote = "Moments Fade, Memories Remain";
   
   // Array of colors for the hover effect
   const colors = [

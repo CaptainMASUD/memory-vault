@@ -7,7 +7,6 @@ import Footer from "../Footer/Footer"
 function Layout() {
   return (
     <div>
-      <Header/>
       <Outlet/>
       <Footer/>
     </div>
