@@ -16,7 +16,7 @@ function Title() {
   ];
 
   return (
-    <div className="flex flex-col items-center text-center mt-[-40px] bg-gradient-to-r from-gray-950 to-gray-950 p-8 shadow-md">
+    <div className="flex flex-col  items-center text-center  bg-gradient-to-r from-gray-950 to-gray-950 p-8 shadow-md">
       {/* Animated Title with Hover Effect */}
       <div className="flex space-x-1">
         {title.split("").map((char, index) => (
@@ -44,15 +44,15 @@ function Title() {
         ))}
       </div>
 
-      {/* Animated Quote with Glowing Letters */}
+      {/* Responsive Animated Quote with Glowing Letters */}
       <motion.div
-        className="relative text-lg font-medium mt-4 text-white flex items-center justify-center"
+        className="relative mt-4 text-white flex items-center justify-center max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-2xl"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: "easeInOut", delay: 0.5 }}
       >
         <FaQuoteLeft className="text-gray-200 mr-2" />
-        <div className="flex space-x-1">
+        <div className="flex space-x-1 text-xs sm:text-sm md:text-base lg:text-lg font-medium">
           {quote.split("").map((char, index) => (
             <motion.span
               key={index}

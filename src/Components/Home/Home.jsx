@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'; // Import the styles
 import Title from '../Title/Title';
 import ImagesPart from '../Images/ImagesPart';
 import ExclusiveGallery from '../ExclusiveGallery/ExclusiveGallery';
@@ -56,9 +58,9 @@ function Home() {
       localStorage.setItem('email', email);
       localStorage.setItem('password', password);
       setLoggedIn(true);
-      alert('Login successful!');
+      toast.success('Login successful!'); // Replace alert with toast
     } else {
-      alert('Invalid email or password');
+      toast.error('Invalid email or password'); // Replace alert with toast
     }
   };
 
@@ -66,20 +68,21 @@ function Home() {
     localStorage.removeItem('email');
     localStorage.removeItem('password');
     setLoggedIn(false);
+    toast.info('Logged out successfully'); // Optional: Show a toast on logout
   };
 
   return (
     <div>
+      <ToastContainer /> {/* Include the ToastContainer here */}
       {!loggedIn ? (
         <Login onLogin={handleLogin} />
       ) : (
         <>
-              <Header/>
+          <Header />
           <Title />
-          <InteractiveGallery/>
+          <InteractiveGallery />
           <ExclusiveGallery />
           <ImagesPart />
-          
           <button onClick={handleLogout} className="logout-button">
             Logout
           </button>

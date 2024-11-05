@@ -3,6 +3,8 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FiUser, FiLock, FiEye, FiEyeOff } from 'react-icons/fi';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Login({ onLogin }) {
   const [showPassword, setShowPassword] = useState(false);
@@ -14,20 +16,36 @@ export default function Login({ onLogin }) {
     e.preventDefault();
     setError('');
 
+    // Validate username and password before calling onLogin
+    if (!username || !password) {
+      setError('Please enter both username and password');
+      toast.error('Please enter both username and password', {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      return;
+    }
+
     // Call the onLogin function passed as a prop
     onLogin(username, password);
   };
 
   return (
     <div
-      className="min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat"
+      className="min-h-screen flex items-center justify-end bg-cover bg-center bg-no-repeat"
       style={{ backgroundImage: "url('https://res.cloudinary.com/dwj5oqpqz/image/upload/v1730651594/memory%20vault/ubdnyysjwsleyzkffigw.jpg')" }}
     >
+      <ToastContainer />
       <motion.div
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="w-full max-w-md"
+        className="w-full max-w-md mr-4" // Align form to the right with margin
       >
         <form
           onSubmit={handleSubmit}

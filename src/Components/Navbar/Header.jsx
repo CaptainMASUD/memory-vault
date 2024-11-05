@@ -1,14 +1,66 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { FaBars, FaUser, FaSignOutAlt, FaTimes, FaUserFriends } from 'react-icons/fa'
+import { FaUser, FaSignOutAlt, FaTimes, FaUserFriends } from 'react-icons/fa'
+import { useNavigate } from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false)
+  const [currentUser, setCurrentUser] = useState(null)
+  
+  const credentials = [
+    { email: 'masud.com', password: 's', profileImage: 'https://via.placeholder.com/150?text=Masud' },
+    { email: 'user2@example.com', password: 'password2', profileImage: 'https://via.placeholder.com/150?text=User2' },
+    { email: 'user3@example.com', password: 'password3', profileImage: 'https://via.placeholder.com/150?text=User3' },
+    // Add additional user images here...
+  ]
+
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    // Retrieve email and password from localStorage
+    const storedEmail = localStorage.getItem('email')
+    const storedPassword = localStorage.getItem('password')
+
+    // Verify credentials
+    const user = credentials.find(
+      (cred) => cred.email === storedEmail && cred.password === storedPassword
+    )
+    
+    if (user) {
+      setCurrentUser(user) // Set the current user if verification is successful
+    } else {
+      console.log('No valid user found.')
+    }
+  }, [])
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen)
+  }
+
+  const handleLogout = () => {
+    // Clear localStorage and reset current user
+    localStorage.removeItem('email')
+    localStorage.removeItem('password')
+    setCurrentUser(null)
+    setIsOpen(false)
+    
+    // Show toast notification
+    toast.success('Logged out successfully', {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    })
+    
+    // Reload the page after a short delay for the toast to show
+    setTimeout(() => window.location.reload(), 3000)
   }
 
   const friends = [
@@ -19,13 +71,21 @@ function Header() {
 
   return (
     <div className="relative">
-      {/* Hamburger Icon */}
-      <button 
-        onClick={toggleSidebar} 
-        className="fixed top-4 left-4 z-50 p-2 bg-purple-600 rounded-full text-white hover:bg-purple-700 transition-colors duration-300"
-      >
-        <FaBars size={24} />
-      </button>
+      <ToastContainer />
+      
+      {/* Profile Icon or Hamburger Menu */}
+      {currentUser && (
+        <button 
+          onClick={toggleSidebar} 
+          className="fixed top-4 left-4 z-50 p-2 bg-purple-600 rounded-full text-white hover:bg-purple-700 transition-colors duration-300"
+        >
+          <img
+            src={currentUser.profileImage}
+            alt="Profile"
+            className="w-10 h-10 rounded-full"
+          />
+        </button>
+      )}
 
       {/* Animated Sidebar Menu */}
       <motion.div
@@ -44,13 +104,19 @@ function Header() {
 
           {/* Profile Section */}
           <div className="flex flex-col items-center p-6 border-b border-purple-700/50">
-            <img
-              className="w-24 h-24 rounded-full border-4 border-purple-500 shadow-lg"
-              src="https://via.placeholder.com/150"
-              alt="Profile"
-            />
-            <p className="mt-4 text-xl font-semibold text-purple-200">Unknown User</p>
-            <p className="text-purple-300 text-sm">user@example.com</p>
+            {currentUser ? (
+              <>
+                <img
+                  className="w-24 h-24 rounded-full border-4 border-purple-500 shadow-lg"
+                  src={currentUser.profileImage}
+                  alt="Profile"
+                />
+                <p className="mt-4 text-xl font-semibold text-purple-200">{currentUser.email}</p>
+                <p className="text-purple-300 text-sm">{currentUser.email}</p>
+              </>
+            ) : (
+              <p className="text-red-500">No user logged in</p>
+            )}
           </div>
 
           {/* Menu Links */}
@@ -63,14 +129,13 @@ function Header() {
               <FaUserFriends className="text-purple-300" />
               <span>Friends</span>
             </a>
-            <a
-              href="#"
+            <button
+              onClick={handleLogout}
               className="flex items-center space-x-3 py-2 px-4 rounded-lg bg-purple-800/50 hover:bg-purple-700/50 transition-colors duration-300"
-              onClick={() => alert('Logged out')}
             >
               <FaSignOutAlt className="text-purple-300" />
               <span>Logout</span>
-            </a>
+            </button>
           </nav>
 
           {/* Friends Section */}

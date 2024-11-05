@@ -4,19 +4,11 @@ import { X, ChevronLeft, ChevronRight } from 'lucide-react'
 
 const images = [
   { id: 1, src: 'https://placekitten.com/600/400', title: 'Nature', top: '5%', left: '10%', rotate: '-5deg' },
-  { id: 2, src: 'https://teabazarbd.com/wp-content/uploads/2023/02/best-tea-of-sreemangal-tea-bazar-bd-1024x576.webp', title: 'City', top: '15%', left: '35%', rotate: '3deg' },
-  { id: 3, src: 'https://placekitten.com/650/450', title: 'Beach', top: '40%', left: '5%', rotate: '7deg' },
-  { id: 4, src: 'https://teabazarbd.com/wp-content/uploads/2023/02/best-tea-of-sreemangal-tea-bazar-bd-1024x576.webp', title: 'Mountain', top: '25%', left: '60%', rotate: '-8deg' },
-  { id: 5, src: 'https://placekitten.com/700/500', title: 'Forest', top: '55%', left: '40%', rotate: '4deg' },
-  { id: 6, src: 'https://placekitten.com/720/520', title: 'Lake', top: '10%', left: '70%', rotate: '-2deg' },
-  { id: 7, src: 'https://teabazarbd.com/wp-content/uploads/2023/02/best-tea-of-sreemangal-tea-bazar-bd-1024x576.webp', title: 'River', top: '30%', left: '20%', rotate: '5deg' },
-  { id: 8, src: 'https://placekitten.com/750/550', title: 'Desert', top: '65%', left: '15%', rotate: '10deg' },
-  { id: 9, src: 'https://teabazarbd.com/wp-content/uploads/2023/02/best-tea-of-sreemangal-tea-bazar-bd-1024x576.webp', title: 'Garden', top: '45%', left: '75%', rotate: '-4deg' },
-  { id: 10, src: 'https://placekitten.com/770/570', title: 'Meadow', top: '20%', left: '5%', rotate: '8deg' },
-  { id: 11, src: 'https://placekitten.com/800/600', title: 'Snow', top: '75%', left: '50%', rotate: '-12deg' },
-  { id: 12, src: 'https://teabazarbd.com/wp-content/uploads/2023/02/best-tea-of-sreemangal-tea-bazar-bd-1024x576.webp', title: 'Sunset', top: '5%', left: '50%', rotate: '15deg' },
-];
-
+  { id: 2, src: 'https://placekitten.com/500/350', title: 'City', top: '15%', left: '35%', rotate: '3deg' },
+  { id: 3, src: 'https://placekitten.com/450/300', title: 'Beach', top: '40%', left: '5%', rotate: '7deg' },
+  { id: 4, src: 'https://placekitten.com/570/380', title: 'Mountain', top: '25%', left: '60%', rotate: '-8deg' },
+  { id: 5, src: 'https://placekitten.com/480/320', title: 'Forest', top: '55%', left: '40%', rotate: '4deg' },
+]
 
 const friends = [
   { id: 1, name: 'Alice Johnson', email: 'alice@example.com', phone: '123-456-7890', avatar: 'https://placekitten.com/100/100' },
@@ -48,14 +40,14 @@ export default function InteractiveGallery() {
   const prevFriend = () => setCurrentFriend((prev) => (prev - 1 + friends.length) % friends.length)
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-indigo-800 p-8 relative overflow-hidden">
-      <h1 className="text-4xl font-bold text-center md:mb-12 mb-40 text-indigo-800">Interactive Image Gallery</h1>
+    <div className="min-h-screen bg-gradient-to-br from-purple-100 to-indigo-200 p-8 relative overflow-hidden">
+      <h1 className="text-4xl font-bold text-center mb-12 text-indigo-800">Interactive Image Gallery</h1>
 
       {/* Overlapping images */}
       {images.map((image) => (
         <motion.div
           key={image.id}
-          className="absolute cursor-pointer mt-20"
+          className="absolute cursor-pointer"
           style={{ top: image.top, left: image.left, rotate: image.rotate }}
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -122,15 +114,15 @@ export default function InteractiveGallery() {
       </AnimatePresence>
 
       {/* Bottom Friends Card */}
-      <div className="flex justify-center">
+      {/* <div className='flex justify-center'>
       <motion.div
-        className="fixed bottom-8  transform -translate-x-1/2 w-full  max-w-2xl z-20 px-4"
+        className="fixed bottom-8  transform -translate-x-1/2 w-full max-w-2xl z-20 px-4"
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.5 }}
       >
-        <div className="bg-gray-900 rounded-2xl shadow-2xl p-6">
-          {/* <h2 className="text-2xl font-bold mb-4 text-indigo-800 text-center">Friends</h2> */}
+        <div className="bg-white rounded-2xl shadow-2xl p-6">
+          <h2 className="text-2xl font-bold mb-4 text-indigo-800 text-center">Friends</h2>
           <div className="flex items-center justify-between">
             <button
               onClick={prevFriend}
@@ -163,7 +155,7 @@ export default function InteractiveGallery() {
           </div>
         </div>
       </motion.div>
-      </div>
+      </div> */}
     </div>
   )
 }
