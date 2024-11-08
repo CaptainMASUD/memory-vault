@@ -31,6 +31,8 @@ export default function Login({ onLogin }) {
       return;
     }
 
+    
+
     // Call the onLogin function passed as a prop
     onLogin(username, password);
   };

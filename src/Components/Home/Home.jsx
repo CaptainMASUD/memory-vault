@@ -30,6 +30,7 @@ function Home() {
     );
     if (user) {
       setLoggedIn(true);
+     
     } else {
       handleLogout();
     }
@@ -44,6 +45,7 @@ function Home() {
       localStorage.setItem('password', password);
       setLoggedIn(true);
       toast.success('Login successful!');
+      window.location.reload()
     } else {
       toast.error('Invalid email or password');
     }
