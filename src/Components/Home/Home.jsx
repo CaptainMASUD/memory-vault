@@ -1,50 +1,37 @@
 import React, { useState, useEffect } from 'react';
+import { motion, useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'; // Import the styles
 import Title from '../Title/Title';
 import ImagesPart from '../Images/ImagesPart';
 import ExclusiveGallery from '../ExclusiveGallery/ExclusiveGallery';
 import Login from '../LogIn/Login';
-import Header from '../Navbar/Header';
 import InteractiveGallery from '../InteractiveGallery/InteractiveGallery';
+import Banner from '../Banner/Banner';
+import { Carousel } from 'flowbite-react';
 
 // Predefined email and password pairs
 const credentials = [
   { email: 'masud.com', password: 's' },
-  { email: 'user2@example.com', password: 'password2' },
+  { email: 'ayan@gmail.com', password: '6149' },
   { email: 'user3@example.com', password: 'password3' },
-  { email: 'user4@example.com', password: 'password4' },
-  { email: 'user5@example.com', password: 'password5' },
-  { email: 'user6@example.com', password: 'password6' },
-  { email: 'user7@example.com', password: 'password7' },
-  { email: 'user8@example.com', password: 'password8' },
-  { email: 'user9@example.com', password: 'password9' },
-  { email: 'user10@example.com', password: 'password10' },
-  { email: 'user11@example.com', password: 'password11' },
-  { email: 'user12@example.com', password: 'password12' },
-  { email: 'user13@example.com', password: 'password13' },
-  { email: 'user14@example.com', password: 'password14' },
-  { email: 'user15@example.com', password: 'password15' },
+  // ... more credentials
 ];
 
 function Home() {
   const [loggedIn, setLoggedIn] = useState(false);
 
-  // Check local storage on component mount
   useEffect(() => {
     const storedEmail = localStorage.getItem('email');
     const storedPassword = localStorage.getItem('password');
-
-    if (storedEmail && storedPassword) {
-      const user = credentials.find(
-        (cred) => cred.email === storedEmail && cred.password === storedPassword
-      );
-      if (user) {
-        setLoggedIn(true);
-      } else {
-        // If the stored credentials don't match, ensure we are logged out
-        handleLogout();
-      }
+    const user = credentials.find(
+      (cred) => cred.email === storedEmail && cred.password === storedPassword
+    );
+    if (user) {
+      setLoggedIn(true);
+    } else {
+      handleLogout();
     }
   }, []);
 
@@ -52,15 +39,13 @@ function Home() {
     const user = credentials.find(
       (cred) => cred.email === email && cred.password === password
     );
-
     if (user) {
-      // Store credentials in local storage
       localStorage.setItem('email', email);
       localStorage.setItem('password', password);
       setLoggedIn(true);
-      toast.success('Login successful!'); // Replace alert with toast
+      toast.success('Login successful!');
     } else {
-      toast.error('Invalid email or password'); // Replace alert with toast
+      toast.error('Invalid email or password');
     }
   };
 
@@ -68,27 +53,63 @@ function Home() {
     localStorage.removeItem('email');
     localStorage.removeItem('password');
     setLoggedIn(false);
-    toast.info('Logged out successfully'); // Optional: Show a toast on logout
+    // toast.info('Logged out successfully from home');
   };
 
   return (
     <div>
-      <ToastContainer /> {/* Include the ToastContainer here */}
+      <ToastContainer />
       {!loggedIn ? (
         <Login onLogin={handleLogin} />
       ) : (
         <>
-          <Header />
-          <Title />
-          <InteractiveGallery />
-          <ExclusiveGallery />
-          <ImagesPart />
+          <ScrollSection>
+            <Banner />
+          </ScrollSection>
+          <ScrollSection>
+            <Title />
+          </ScrollSection>
+          <ScrollSection>
+            <InteractiveGallery />
+          </ScrollSection>
+          <ScrollSection>
+            <ExclusiveGallery />
+          </ScrollSection>
+          <ScrollSection>
+            <ImagesPart />
+          </ScrollSection>
           <button onClick={handleLogout} className="logout-button">
             Logout
           </button>
         </>
       )}
     </div>
+  );
+}
+
+// Wrapper component for scroll-triggered animations
+function ScrollSection({ children }) {
+  const controls = useAnimation();
+  const [ref, inView] = useInView({ threshold: 0.3 });
+
+  useEffect(() => {
+    if (inView) {
+      controls.start({ opacity: 1, y: 0 });
+    } else {
+      controls.start({ opacity: 0, y: 50 });
+    }
+  }, [controls, inView]);
+
+  return (
+    <motion.div
+      ref={ref}
+      animate={controls}
+      initial={{ opacity: 0, y: 50 }}
+      transition={{ duration: 0.8 }}
+      className="mb-12"
+    >
+      {children}
+    </motion.div>
   );
 }
 

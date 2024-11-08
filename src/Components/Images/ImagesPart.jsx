@@ -142,7 +142,7 @@ const BannerImages = () => {
   }, []);
 
   return (
-    <section className="py-10 bg-gradient-to-br from-purple-100 to-purple-300">
+    <section className="py-10 ">
       <div className="max-w-4xl mx-auto">
         <div className="flex justify-center gap-2 mb-2">
           <HexagonImage src={image1} style={style} index={0} imagesLoaded={imagesLoaded} />

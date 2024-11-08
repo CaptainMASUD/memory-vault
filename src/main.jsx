@@ -8,6 +8,8 @@ import Layout from './Components/Layout/Layout';
 import Home from './Components/Home/Home';
 import "./index.css"
 import Login from './Components/LogIn/Login';
+import Friends from './Components/Friends/Friends';
+import Profile from './Components/UserProfile/Profile';
 
 
 
@@ -23,6 +25,14 @@ const router = createBrowserRouter([
       {
         path:'login',
         element : <Login/>
+      },
+      {
+        path:'friends',
+        element : <Friends/>
+      },
+      {
+        path:'profile',
+        element : <Profile/>
       },
 
       

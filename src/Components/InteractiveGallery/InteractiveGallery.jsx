@@ -40,7 +40,7 @@ export default function InteractiveGallery() {
   const prevFriend = () => setCurrentFriend((prev) => (prev - 1 + friends.length) % friends.length)
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-100 to-indigo-200 p-8 relative overflow-hidden">
+    <div className="min-h-screen  p-8 relative overflow-hidden">
       <h1 className="text-4xl font-bold text-center mb-12 text-indigo-800">Interactive Image Gallery</h1>
 
       {/* Overlapping images */}

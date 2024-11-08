@@ -16,7 +16,7 @@ function Title() {
   ];
 
   return (
-    <div className="flex flex-col  items-center text-center  bg-gradient-to-r from-gray-950 to-gray-950 p-8 shadow-md">
+    <div className="flex flex-col  items-center text-center mt-0 bg-slate-900 p-8 shadow-md">
       {/* Animated Title with Hover Effect */}
       <div className="flex space-x-1">
         {title.split("").map((char, index) => (

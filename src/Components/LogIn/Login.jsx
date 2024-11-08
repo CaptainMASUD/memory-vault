@@ -111,20 +111,11 @@ export default function Login({ onLogin }) {
           </div>
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center">
-              <input
-                id="remember-me"
-                name="remember-me"
-                type="checkbox"
-                className="h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300 rounded"
-              />
-              <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-300">
-                Remember me
-              </label>
+             
+            
             </div>
             <div className="text-sm">
-              <a href="#" className="font-medium text-purple-400 hover:text-purple-300">
-                Forgot your password?
-              </a>
+             
             </div>
           </div>
           <motion.div
@@ -139,12 +130,7 @@ export default function Login({ onLogin }) {
             </button>
           </motion.div>
         </form>
-        <p className="text-center text-gray-300 text-xs">
-          Don't have an account?{' '}
-          <a href="#" className="text-purple-400 hover:text-purple-300">
-            Sign up
-          </a>
-        </p>
+      
       </motion.div>
     </div>
   );
