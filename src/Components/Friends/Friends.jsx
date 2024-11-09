@@ -2,14 +2,20 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { FiPhone, FiMail, FiUser } from 'react-icons/fi';
 import Header from '../Navbar/Header';
+import { FaPaperclip } from "react-icons/fa";
 
 const friends = [
-  { id: 1, name: 'John Doe', email: 'johndoe@example.com', phone: '123-456-7890', profileImage: 'https://scontent.fdac41-1.fna.fbcdn.net/v/t39.30808-6/454467903_3701996050042630_3647676458570200956_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeEugYkhPJNPIYbw-MQgubWdzwNOr6LzSOXPA06vovNI5TyJdCCZ2c3OBKL_Tk_i2l1hvnF2g4XZsRWLmRJtrAyT&_nc_ohc=r0uhO7uEKCoQ7kNvgGYZbLf&_nc_zt=23&_nc_ht=scontent.fdac41-1.fna&_nc_gid=ARJQoDPYCgfAEX182ZwABPZ&oh=00_AYDzAm-Stx01J1xpDHEptw2QMPAXJvsoVZmD6Z4q4BmXGw&oe=67336F4F' },
-  { id: 1, name: 'John Doe', email: 'johndoe@example.com', phone: '123-456-7890', profileImage: 'https://scontent.fdac41-1.fna.fbcdn.net/v/t39.30808-6/454467903_3701996050042630_3647676458570200956_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeEugYkhPJNPIYbw-MQgubWdzwNOr6LzSOXPA06vovNI5TyJdCCZ2c3OBKL_Tk_i2l1hvnF2g4XZsRWLmRJtrAyT&_nc_ohc=r0uhO7uEKCoQ7kNvgGYZbLf&_nc_zt=23&_nc_ht=scontent.fdac41-1.fna&_nc_gid=ARJQoDPYCgfAEX182ZwABPZ&oh=00_AYDzAm-Stx01J1xpDHEptw2QMPAXJvsoVZmD6Z4q4BmXGw&oe=67336F4F' },
-  { id: 1, name: 'John Doe', email: 'johndoe@example.com', phone: '123-456-7890', profileImage: 'https://scontent.fdac41-1.fna.fbcdn.net/v/t39.30808-6/454467903_3701996050042630_3647676458570200956_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeEugYkhPJNPIYbw-MQgubWdzwNOr6LzSOXPA06vovNI5TyJdCCZ2c3OBKL_Tk_i2l1hvnF2g4XZsRWLmRJtrAyT&_nc_ohc=r0uhO7uEKCoQ7kNvgGYZbLf&_nc_zt=23&_nc_ht=scontent.fdac41-1.fna&_nc_gid=ARJQoDPYCgfAEX182ZwABPZ&oh=00_AYDzAm-Stx01J1xpDHEptw2QMPAXJvsoVZmD6Z4q4BmXGw&oe=67336F4F' },
-  { id: 1, name: 'John Doe', email: 'johndoe@example.com', phone: '123-456-7890', profileImage: 'https://scontent.fdac41-1.fna.fbcdn.net/v/t39.30808-6/454467903_3701996050042630_3647676458570200956_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeEugYkhPJNPIYbw-MQgubWdzwNOr6LzSOXPA06vovNI5TyJdCCZ2c3OBKL_Tk_i2l1hvnF2g4XZsRWLmRJtrAyT&_nc_ohc=r0uhO7uEKCoQ7kNvgGYZbLf&_nc_zt=23&_nc_ht=scontent.fdac41-1.fna&_nc_gid=ARJQoDPYCgfAEX182ZwABPZ&oh=00_AYDzAm-Stx01J1xpDHEptw2QMPAXJvsoVZmD6Z4q4BmXGw&oe=67336F4F' },
-  { id: 1, name: 'John Doe', email: 'johndoe@example.com', phone: '123-456-7890', profileImage: 'https://scontent.fdac41-1.fna.fbcdn.net/v/t39.30808-6/454467903_3701996050042630_3647676458570200956_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeEugYkhPJNPIYbw-MQgubWdzwNOr6LzSOXPA06vovNI5TyJdCCZ2c3OBKL_Tk_i2l1hvnF2g4XZsRWLmRJtrAyT&_nc_ohc=r0uhO7uEKCoQ7kNvgGYZbLf&_nc_zt=23&_nc_ht=scontent.fdac41-1.fna&_nc_gid=ARJQoDPYCgfAEX182ZwABPZ&oh=00_AYDzAm-Stx01J1xpDHEptw2QMPAXJvsoVZmD6Z4q4BmXGw&oe=67336F4F' },
-  { id: 2, name: 'Jane Smith', email: 'janesmith@example.com', phone: '987-654-3210', profileImage: 'https://via.placeholder.com/100' },
+  { id: 2, name: 'Privan', email: 'nurtahmimahmed@gmail.com', phone: '01855612703',bio : "", profileImage: '' },
+  { id: 4, name: 'Masudul Alam', email: 'masudulalam972@gmail.com', phone: '01876039841',bio : "", profileImage: '' },
+  { id: 1, name: 'Ayan Nandy Nirjon', email: 'johndoe@example.com', phone: '123-456-7890',bio : "", profileImage: '' },
+  { id: 6, name: 'T M Shahed Rumi', email: 'shahedrumi98@gmail.com', phone: '01580849247',bio : "", profileImage: '' },
+  { id: 7, name: 'MD.FAYSAL AHMED', email: 'ahmed15-6195@s.diu.edu.bd', phone: '01533342443',bio : "", profileImage: '' },
+  { id: 3, name: 'Nova', email: 'tasnianaima@gmail.com', phone: '01709226361',bio : "", profileImage: '' },
+  { id: 5, name: 'SM. Asif Arafat Himel', email: 'kft776@gmail.com', phone: '01797228898',bio : "", profileImage: '' },
+  { id: 8, name: 'Shohely Islam ', email: 'shohelyislamsuchi@gmail.com', phone: '01892301044',bio : "", profileImage: '' },
+  { id: 9, name: 'Arhab Jahin', email: 'arhabjahin.b@gmail.com', phone: '01911308923',bio : "", profileImage: '' },
+  { id: 10, name: 'Surjya Bhowmick', email: 'bhowmickneeds@gmail.com', phone: '01531542940',bio : "", profileImage: '' },
+
   
   // ... Add more friend profiles here
 ];
@@ -39,6 +45,10 @@ function Friends() {
           <div className="text-sm text-gray-400 flex items-center justify-center gap-2 mt-1">
             <FiPhone className="text-green-500" />
             <span>{friend.phone}</span>
+          </div>
+          <div className="text-sm text-gray-400 flex items-center justify-center gap-2 mt-1">
+            <FaPaperclip className="text-orange-500" />
+            <span>{friend.bio}</span>
           </div>
           <button className="mt-4 px-4 py-2 border border-purple-500 text-white rounded-lg flex items-center gap-2 hover:border-transparent hover:bg-purple-600">
             <FiUser />

@@ -10,6 +10,8 @@ import Login from '../LogIn/Login';
 import InteractiveGallery from '../InteractiveGallery/InteractiveGallery';
 import Banner from '../Banner/Banner';
 import { Carousel } from 'flowbite-react';
+import { FaCog } from 'react-icons/fa'
+import { Alert } from 'flowbite-react'
 
 // Predefined email and password pairs
 const credentials = [
@@ -58,35 +60,61 @@ function Home() {
     // toast.info('Logged out successfully from home');
   };
 
-  return (
-    <div>
-      <ToastContainer />
-      {!loggedIn ? (
-        <Login onLogin={handleLogin} />
-      ) : (
-        <>
-          <ScrollSection>
-            <Banner />
-          </ScrollSection>
-          <ScrollSection>
-            <Title />
-          </ScrollSection>
-          <ScrollSection>
-            <InteractiveGallery />
-          </ScrollSection>
-          <ScrollSection>
-            <ExclusiveGallery />
-          </ScrollSection>
-          <ScrollSection>
-            <ImagesPart />
-          </ScrollSection>
-          <button onClick={handleLogout} className="logout-button">
-            Logout
-          </button>
-        </>
-      )}
+  
+
+  // return (
+  //   <div>
+  //     <ToastContainer />
+  //     {!loggedIn ? (
+  //       <Login onLogin={handleLogin} />
+  //     ) : (
+  //       <>
+  //         <ScrollSection>
+  //           <Banner />
+  //         </ScrollSection>
+  //         <ScrollSection>
+  //           <Title />
+  //         </ScrollSection>
+  //         <ScrollSection>
+  //           <InteractiveGallery />
+  //         </ScrollSection>
+  //         <ScrollSection>
+  //           <ExclusiveGallery />
+  //         </ScrollSection>
+  //         <ScrollSection>
+  //           <ImagesPart />
+  //         </ScrollSection>
+  //         <button onClick={handleLogout} className="logout-button">
+  //           Logout
+  //         </button>
+  //       </>
+  //     )}
+  //   </div>
+  // );
+  return(
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+    <div className="text-center">
+      <motion.div
+        animate={{ rotate: 360 }}
+        transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+        className="inline-block text-blue-600 mb-4"
+      >
+        <FaCog className="w-24 h-24" />
+      </motion.div>
+      <motion.div
+        animate={{ scale: [1, 1.1, 1] }}
+        transition={{ duration: 2, repeat: Infinity }}
+        
+      >
+        <h1 className="text-4xl font-bold text-gray-800 mb-4">Site Under Maintenance</h1>
+      </motion.div>
+      <Alert color="warning" className="mb-4" >
+        <span className="font-medium text-center">Pore Ay akhono kaj hoy nai</span>  Kaj ses hoile website calu hoya jaibo -Ayoooooooooonn :)
+      </Alert>
+      
     </div>
-  );
+  </div>
+  )
 }
 
 // Wrapper component for scroll-triggered animations
