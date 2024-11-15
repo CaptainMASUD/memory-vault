@@ -11,6 +11,7 @@ import { Carousel } from 'flowbite-react';
 import ProfilePictures from '../Profiles/Profiles';
 import MemoryGallery from '../MemoyGalery/MemoryGalery';
 import InfiniteScrollGallery from '../InfiniteScrollGallery/InfiniteScrollGallery';
+import UnderMaintenance from './UnderMaintenance';
 
 // Predefined email and password pairs
 const credentials = [
@@ -66,33 +67,36 @@ function Home() {
   };
 
   return (
-    <div>
-      <ToastContainer />
-      {!loggedIn ? (
-        <Login onLogin={handleLogin} />
-      ) : (
-        <>
-          <Section>
-            <Banner />
-          </Section>
-          <Section>
-            <Title />
-            <ProfilePictures />
-          </Section>
-          <Section>
-            <InfiniteScrollGallery />
-            <MemoryGallery />
-          </Section>
+    <>
+    <UnderMaintenance/>
+    </>
+    // <div>
+    //   <ToastContainer />
+    //   {!loggedIn ? (
+    //     <Login onLogin={handleLogin} />
+    //   ) : (
+    //     <>
+    //       <Section>
+    //         <Banner />
+    //       </Section>
+    //       <Section>
+    //         <Title />
+    //         <ProfilePictures />
+    //       </Section>
+    //       <Section>
+    //         <InfiniteScrollGallery />
+    //         <MemoryGallery />
+    //       </Section>
 
-          <Section>
-            <ExclusiveGallery />
-          </Section>
-          <Section>
-            <ImagesPart />
-          </Section>
-        </>
-      )}
-    </div>
+    //       <Section>
+    //         <ExclusiveGallery />
+    //       </Section>
+    //       <Section>
+    //         <ImagesPart />
+    //       </Section>
+    //     </>
+    //   )}
+    // </div>
   );
 }
 
