@@ -6,15 +6,34 @@ import { FaUser, FaSignOutAlt, FaTimes, FaUserFriends } from 'react-icons/fa'
 import { useNavigate, Link } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import masud from "../../images/profiles/pics/Masud.jpg"
+import rumi from "../../images/profiles/pics/rumi.jpg"
+import jahin from "../../images/profiles/pics/Arhab Jahin.jpg"
+import Faysal from "../../images/profiles/pics/Faysal.jpg"
+import Mahfuz from "../../images/profiles/pics/Mahfuz.jpg"
+import Nova from "../../images/profiles/pics/Nova.jpg"
+import Ayan from "../../images/profiles/pics/Ayan .jpg"
+import SURJYA from "../../images/profiles/pics/SURJYA BHOWMICK.jpg"
+import himel from "../../images/profiles/pics/Hmu - Panda Vai.jpg"
+import privan from "../../images/profiles/pics/Tahmim Ahmed.jpg"
+import Shohely from "../../images/profiles/pics/Shohely Islam.jpg"
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false)
   const [currentUser, setCurrentUser] = useState(null)
 
   const credentials = [
-    { email: 'masud.com', password: 's', profileImage: 'https://scontent.fdac41-2.fna.fbcdn.net/v/t39.30808-6/462373053_567421672299324_3777899324825412651_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeGs3IwuOGlRAdFs2pDXURLpRy01_sMe1gVHLTX-wx7WBfeZL475I_-xcO8axSDqdHyxyk140oiLer1_Ac9l18rF&_nc_ohc=L-flAC-c2aYQ7kNvgEJtSf7&_nc_zt=23&_nc_ht=scontent.fdac41-2.fna&_nc_gid=AjYawB7VfVlP89aleD2PPCI&oh=00_AYBTzkb7ENiJ4VVR6JoYvKaXHwcrY_K9B9-IyYg30NEmNA&oe=67336297' },
-    { email: 'ayan@gmail.com', password: '6149' , profileImage: 'https://via.placeholder.com/150?text=User2' },
-    { email: 'user3@example.com', password: 'password3', profileImage: 'https://via.placeholder.com/150?text=User3' },
+    { email: 'masudulalam972@gmail.com', password: '222-15-6072', profileImage: masud },
+    { email: 'nirjon853@gmail.com', password: '222-15-6149' , profileImage: Ayan },
+    { email: 'nurtahmimahmed@gmail.com', password: '222-15-6217', profileImage: privan },
+    { email: 'tasnianaima@gmail.com', password: '222-15-6313', profileImage: Nova },
+    { email: 'kft776@gmail.com', password: '222-15-6178', profileImage: himel },
+    { email: 'rrahmanmahfuz007@gmail.com', password: '222-15-6522', profileImage: Mahfuz },
+    { email: 'shahedrumi98@gmail.com', password: '222-15-6485', profileImage: rumi },
+    { email: 'ahmed15-6195@s.diu.edu.bd', password: '222-15-6195', profileImage: Faysal },
+    { email: 'shohelyislamsuchi@gmail.com', password: '222-15-6493', profileImage: Shohely },
+    { email: 'arhabjahin.b@gmail.com', password: '222-15-6452', profileImage: jahin },
+    { email: 'bhowmickneeds@gmail.com', password: '222-15-6382', profileImage: SURJYA },
   ]
 
   const navigate = useNavigate()

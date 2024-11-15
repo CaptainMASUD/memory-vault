@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
-import image1 from "../../images/all images/IMG20230930145504.jpg";
-import image2 from "../../images/all images/IMG20230930145504.jpg";
-import image3 from "../../images/all images/IMG20230930145504.jpg";
-import image4 from "../../images/all images/IMG20230930145504.jpg";
-import image5 from "../../images/all images/IMG20230930145504.jpg";
-import image6 from "../../images/all images/IMG20230930145504.jpg";
-import image7 from "../../images/all images/IMG20230930145504.jpg";
-import image8 from "../../images/all images/IMG20230930145504.jpg";
-import image9 from "../../images/all images/IMG20230930145504.jpg";
-import image10 from "../../images/all images/IMG20230930145504.jpg";
-import image11 from "../../images/all images/IMG20230930145504.jpg";
-import image12 from "../../images/all images/IMG20230930145504.jpg";
-import image13 from "../../images/all images/IMG20230930145504.jpg";
-import image14 from "../../images/all images/IMG20230930145504.jpg";
+import image1 from "../../images/all images/IMG20230930145504.jpg"
+import image2 from "../../images/all images/IMG_20241009_175939_463.jpg"
+import image3 from "../../images/all images/IMG20240324184314.jpg"
+import image4 from "../../images/all images/IMG20241008004506.jpg"
+import image5 from "../../images/all images/IMG20241008182723.jpg"
+import image6 from "../../images/all images/IMG20240129111346.jpg"
+import image7 from "../../images/all images/IMG_20230828_163217_315.jpg"
+import image8 from "../../images/all images/IMG20240324184237.jpg"
+import image9 from "../../images/all images/IMG_20241009_180030_400.jpg"
+import image10 from "../../images/all images/IMG_20241009_180025_553.jpg"
+import image11 from "../../images/all images/IMG_20241009_175928_659.jpg"
+import image12 from "../../images/all images/IMG20241008182723.jpg"
+import image13 from "../../images/all images/IMG20241008115338.jpg"
+import image14 from "../../images/all images/group.jpg"
 
 const allImages = [image1, image2, image3, image4, image5, image6, image7, image8, image9, image10, image11, image12, image13, image14];
 

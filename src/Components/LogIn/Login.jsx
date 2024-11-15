@@ -51,7 +51,7 @@ export default function Login({ onLogin }) {
       >
         <form
           onSubmit={handleSubmit}
-          className="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg shadow-2xl rounded-3xl px-8 pt-8 pb-8 mb-4"
+          className="bg-white ml-5 bg-opacity-10 backdrop-filter backdrop-blur-lg shadow-2xl rounded-3xl px-8 pt-8 pb-8 mb-4"
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.5 }}
@@ -69,10 +69,10 @@ export default function Login({ onLogin }) {
             </label>
             <div className="relative">
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                <FiUser className="h-5 w-5 text-gray-400" />
+                <FiUser className="h-5 w-5 text-gray-100" />
               </div>
               <input
-                className="appearance-none rounded-lg w-full py-3 px-4 pl-10 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-purple-500 bg-white bg-opacity-20 placeholder-gray-400"
+                className="appearance-none rounded-lg w-full py-3 px-4 pl-10 text-gray-100 leading-tight focus:outline-none focus:ring-2 focus:ring-purple-500 bg-white bg-opacity-20 placeholder-gray-200"
                 id="username"
                 type="text"
                 placeholder="Enter your username"
@@ -88,10 +88,10 @@ export default function Login({ onLogin }) {
             </label>
             <div className="relative">
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                <FiLock className="h-5 w-5 text-gray-400" />
+                <FiLock className="h-5 w-5 text-gray-100" />
               </div>
               <input
-                className="appearance-none rounded-lg w-full py-3 px-4 pl-10 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-purple-500 bg-white bg-opacity-20 placeholder-gray-400"
+                className="appearance-none rounded-lg w-full py-3 px-4 pl-10 text-gray-100 leading-tight focus:outline-none focus:ring-2 focus:ring-purple-500 bg-white bg-opacity-20 placeholder-gray-200"
                 id="password"
                 type={showPassword ? "text" : "password"}
                 placeholder="Enter your password"

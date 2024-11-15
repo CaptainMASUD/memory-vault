@@ -3,17 +3,27 @@
 import React, { useState, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { FiImage, FiCamera, FiVideo, FiX, FiDownload, FiMaximize2 } from 'react-icons/fi'
+import img1 from "../../images/all images/IMG20230930145504.jpg"
+import img2 from "../../images/all images/IMG_20241009_175939_463.jpg"
+import img3 from "../../images/all images/IMG20240324184314.jpg"
+import img4 from "../../images/all images/IMG20241008004506.jpg"
+import img5 from "../../images/all images/IMG20241008182723.jpg"
+import img6 from "../../images/all images/IMG20240129111346.jpg"
+import img7 from "../../images/all images/IMG_20230828_163217_315.jpg"
+import img8 from "../../images/all images/IMG20240324184237.jpg"
+import img9 from "../../images/all images/IMG_20241009_180030_400.jpg"
+import img10 from "../../images/all images/IMG_20241009_180025_553.jpg"
 
 // Sample data - replace with your actual Cloudinary image and video data
 const media = [
-  { id: 1, src: 'https://res.cloudinary.com/demo/image/upload/v1312461204/sample.jpg', type: 'image' },
-  { id: 2, src: 'https://res.cloudinary.com/demo/image/upload/v1434028606/sample.png', type: 'image' },
+  { id: 1, src: "https://res.cloudinary.com/dwj5oqpqz/image/upload/v1730651635/memory%20vault/x8ghinunbmhgjibcz99b.jpg", type: 'image' },
+  { id: 2, src: img2, type: 'image' },
   { id: 3, src: 'https://res.cloudinary.com/demo/video/upload/v1389969539/sample.mp4', type: 'video' },
-  { id: 4, src: 'https://res.cloudinary.com/demo/image/upload/v1371282172/sample.jpg', type: 'image' },
-  { id: 5, src: 'https://res.cloudinary.com/demo/image/upload/v1399439106/sample.jpg', type: 'image' },
+  { id: 4, src: img3, type: 'image' },
+  { id: 5, src: img4, type: 'image' },
   { id: 6, src: 'https://res.cloudinary.com/demo/video/upload/v1389969539/dog.mp4', type: 'video' },
-  { id: 7, src: 'https://res.cloudinary.com/demo/image/upload/v1425837431/sample.png', type: 'image' },
-  { id: 8, src: 'https://res.cloudinary.com/demo/image/upload/v1493026402/sample.jpg', type: 'image' },
+  { id: 7, src: img5, type: 'image' },
+  { id: 8, src: img6, type: 'image' },
 ]
 
 export default function Component() {
@@ -37,7 +47,23 @@ export default function Component() {
 
   return (
     <div className="min-h-screen  p-4">
-      <h1 className="text-3xl font-bold text-center text-white mb-4">Cloudinary Gallery</h1>
+       <motion.h1
+      className="text-3xl font-bold text-center bg-clip-text text-transparent mb-4"
+      style={{
+        backgroundImage: 'linear-gradient(90deg, #ec4899, #9333ea, #6366f1)',
+        backgroundSize: '200% 100%',
+      }}
+      initial={{ backgroundPosition: '100% 0%' }}
+      animate={{ backgroundPosition: '0% 0%' }}
+      transition={{
+        duration: 3,
+        repeat: Infinity,
+        repeatType: 'reverse',
+        ease: 'easeInOut',
+      }}
+    >
+      Memory Begins From Here
+    </motion.h1>
       
       <div className="flex justify-center space-x-2 mb-4">
         <FilterButton icon={<FiImage />} label="All" onClick={() => setFilter('all')} active={filter === 'all'} />
