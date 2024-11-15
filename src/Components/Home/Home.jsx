@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { motion, useAnimation } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'; // Import the styles
 import Title from '../Title/Title';
@@ -17,16 +15,16 @@ import InfiniteScrollGallery from '../InfiniteScrollGallery/InfiniteScrollGaller
 // Predefined email and password pairs
 const credentials = [
   { email: 'masudulalam972@gmail.com', password: '222-15-6072' },
-  { email: 'nirjon853@gmail.com', password: '222-15-6149'},
-  { email: 'nurtahmimahmed@gmail.com', password: '222-15-6217'},
-  { email: 'tasnianaima@gmail.com', password: '222-15-6313'},
-  { email: 'kft776@gmail.com', password: '222-15-6178'},
-  { email: 'rrahmanmahfuz007@gmail.com', password: '222-15-6522'},
-  { email: 'shahedrumi98@gmail.com', password: '222-15-6485'},
+  { email: 'nirjon853@gmail.com', password: '222-15-6149' },
+  { email: 'nurtahmimahmed@gmail.com', password: '222-15-6217' },
+  { email: 'tasnianaima@gmail.com', password: '222-15-6313' },
+  { email: 'kft776@gmail.com', password: '222-15-6178' },
+  { email: 'rrahmanmahfuz007@gmail.com', password: '222-15-6522' },
+  { email: 'shahedrumi98@gmail.com', password: '222-15-6485' },
   { email: 'ahmed15-6195@s.diu.edu.bd', password: '222-15-6195' },
   { email: 'shohelyislamsuchi@gmail.com', password: '222-15-6493' },
-  { email: 'arhabjahin.b@gmail.com', password: '222-15-6452'},
-  { email: 'bhowmickneeds@gmail.com', password: '222-15-6382'},
+  { email: 'arhabjahin.b@gmail.com', password: '222-15-6452' },
+  { email: 'bhowmickneeds@gmail.com', password: '222-15-6382' },
   // ... more credentials
 ];
 
@@ -41,7 +39,6 @@ function Home() {
     );
     if (user) {
       setLoggedIn(true);
-     
     } else {
       handleLogout();
     }
@@ -56,7 +53,7 @@ function Home() {
       localStorage.setItem('password', password);
       setLoggedIn(true);
       toast.success('Login successful!');
-      window.location.reload()
+      window.location.reload();
     } else {
       toast.error('Invalid email or password');
     }
@@ -66,7 +63,6 @@ function Home() {
     localStorage.removeItem('email');
     localStorage.removeItem('password');
     setLoggedIn(false);
-    // toast.info('Logged out successfully from home');
   };
 
   return (
@@ -76,58 +72,33 @@ function Home() {
         <Login onLogin={handleLogin} />
       ) : (
         <>
-          <ScrollSection>
+          <Section>
             <Banner />
-          </ScrollSection>
-          <ScrollSection>
+          </Section>
+          <Section>
             <Title />
-          </ScrollSection>
-          <ScrollSection>
-          <ScrollSection>
             <ProfilePictures />
-          </ScrollSection>
-            {/* <InteractiveGallery /> */}
-            <MemoryGallery/>
-            <InfiniteScrollGallery/>
-          </ScrollSection>
+          </Section>
+          <Section>
+            <InfiniteScrollGallery />
+            <MemoryGallery />
+          </Section>
 
-          <ScrollSection>
+          <Section>
             <ExclusiveGallery />
-          </ScrollSection>
-          <ScrollSection>
+          </Section>
+          <Section>
             <ImagesPart />
-          </ScrollSection>
-         
+          </Section>
         </>
       )}
     </div>
   );
 }
 
-// Wrapper component for scroll-triggered animations
-function ScrollSection({ children }) {
-  const controls = useAnimation();
-  const [ref, inView] = useInView({ threshold: 0.3 });
-
-  useEffect(() => {
-    if (inView) {
-      controls.start({ opacity: 1, y: 0 });
-    } else {
-      controls.start({ opacity: 0, y: 50 });
-    }
-  }, [controls, inView]);
-
-  return (
-    <motion.div
-      ref={ref}
-      animate={controls}
-      initial={{ opacity: 0, y: 50 }}
-      transition={{ duration: 0.8 }}
-      className="mb-12"
-    >
-      {children}
-    </motion.div>
-  );
+// Wrapper component for sections without animation
+function Section({ children }) {
+  return <div className="mb-12">{children}</div>;
 }
 
 export default Home;

@@ -1,20 +1,19 @@
 import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
 
-import image1 from "../../images/all images/IMG20230930145504.jpg"
-import image2 from "../../images/all images/IMG_20241009_175939_463.jpg"
-import image3 from "../../images/all images/IMG20240324184314.jpg"
-import image4 from "../../images/all images/IMG20241008004506.jpg"
-import image5 from "../../images/all images/IMG20241008182723.jpg"
-import image6 from "../../images/all images/IMG20240129111346.jpg"
-import image7 from "../../images/all images/IMG_20230828_163217_315.jpg"
-import image8 from "../../images/all images/IMG20240324184237.jpg"
-import image9 from "../../images/all images/IMG_20241009_180030_400.jpg"
-import image10 from "../../images/all images/IMG_20241009_180025_553.jpg"
-import image11 from "../../images/all images/IMG_20241009_175928_659.jpg"
-import image12 from "../../images/all images/IMG20241008182723.jpg"
-import image13 from "../../images/all images/IMG20241008115338.jpg"
-import image14 from "../../images/all images/group.jpg"
+import image1 from "../../images/all images/IMG20230930145504.jpg";
+import image2 from "../../images/all images/IMG_20241009_175939_463.jpg";
+import image3 from "../../images/all images/IMG20240324184314.jpg";
+import image4 from "../../images/all images/IMG20241008004506.jpg";
+import image5 from "../../images/all images/IMG20241008182723.jpg";
+import image6 from "../../images/all images/IMG20240129111346.jpg";
+import image7 from "../../images/all images/IMG_20230828_163217_315.jpg";
+import image8 from "../../images/all images/IMG20240324184237.jpg";
+import image9 from "../../images/all images/IMG_20241009_180030_400.jpg";
+import image10 from "../../images/all images/IMG_20241009_180025_553.jpg";
+import image11 from "../../images/all images/IMG_20241009_175945_747.jpg";
+import image12 from "../../images/all images/IMG20241008182723.jpg";
+import image13 from "../../images/all images/IMG20241008115338.jpg";
+import image14 from "../../images/all images/group.jpg";
 
 const allImages = [image1, image2, image3, image4, image5, image6, image7, image8, image9, image10, image11, image12, image13, image14];
 
@@ -23,6 +22,7 @@ const hexagonStyle = {
   height: "100px",
   clipPath: "polygon(0 28%, 50% 0, 100% 28%, 100% 72%, 50% 100%, 0 72%)",
   position: "relative",
+  transition: "all 1s ease", // Smooth transition for hexagon style changes
 };
 
 const hexagonStyle2 = {
@@ -30,6 +30,7 @@ const hexagonStyle2 = {
   height: "170px",
   clipPath: "polygon(0 28%, 50% 0, 100% 28%, 100% 72%, 50% 100%, 0 72%)",
   position: "relative",
+  transition: "all 1s ease", // Smooth transition for hexagon style changes
 };
 
 const shuffleArray = (array) => {
@@ -44,6 +45,7 @@ const shuffleArray = (array) => {
 const HexagonImage = ({ src, style, index, imagesLoaded }) => {
   const [currentImage, setCurrentImage] = useState(src);
   const [imagePool, setImagePool] = useState([]);
+  const [fade, setFade] = useState(true); // Track fade-in/out state
 
   useEffect(() => {
     setImagePool(shuffleArray(allImages).slice(0, 7)); // Get 7 unique images
@@ -53,19 +55,24 @@ const HexagonImage = ({ src, style, index, imagesLoaded }) => {
     if (!imagesLoaded) return;
 
     const interval = setInterval(() => {
-      setImagePool((prevPool) => {
-        const newPool = [...prevPool];
-        newPool.push(newPool.shift());
-        setCurrentImage(newPool[0]);
-        return newPool;
-      });
+      setFade(false); // Start fade out
+      setTimeout(() => {
+        setImagePool((prevPool) => {
+          const newPool = [...prevPool];
+          newPool.push(newPool.shift());
+          setCurrentImage(newPool[0]);
+          return newPool;
+        });
+        setFade(true); // Start fade in
+      }, 500); // Wait until fade-out completes (0.5s)
+
     }, 5000 + index * 1000); // Stagger the interval for each hexagon
 
     return () => clearInterval(interval);
   }, [index, imagesLoaded]);
 
   return (
-    <motion.div
+    <div
       className="hexagon"
       style={{
         ...style,
@@ -73,22 +80,17 @@ const HexagonImage = ({ src, style, index, imagesLoaded }) => {
         backgroundColor: "#8A2BE2", // Purple background
         boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08)",
       }}
-      whileHover={{ scale: 1.05, boxShadow: "0 8px 12px rgba(0, 0, 0, 0.2), 0 2px 4px rgba(0, 0, 0, 0.1)" }}
-      initial={{ opacity: 0, scale: 0.5 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
     >
-      <motion.img
+      <img
         src={currentImage}
         alt=""
         style={{
           width: "100%",
           height: "100%",
           objectFit: "cover",
+          opacity: fade ? 1 : 0, // Apply fade-in/out effect based on fade state
+          transition: "opacity 0.5s ease-in-out", // Fade transition
         }}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
         key={currentImage}
       />
       <div
@@ -103,7 +105,7 @@ const HexagonImage = ({ src, style, index, imagesLoaded }) => {
           zIndex: 1,
         }}
       />
-    </motion.div>
+    </div>
   );
 };
 
@@ -142,7 +144,7 @@ const BannerImages = () => {
   }, []);
 
   return (
-    <section className="py-10 ">
+    <section className="py-10">
       <div className="max-w-4xl mx-auto">
         <div className="flex justify-center gap-2 mb-2">
           <HexagonImage src={image1} style={style} index={0} imagesLoaded={imagesLoaded} />
