@@ -2,30 +2,35 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { FiPhone, FiMail, FiUser } from 'react-icons/fi';
 import { FaPaperclip } from "react-icons/fa";
-import masud from "../../images/profiles/pics/Masud.jpg"
-import rumi from "../../images/profiles/pics/rumi.jpg"
-import jahin from "../../images/profiles/pics/Arhab Jahin.jpg"
-import Faysal from "../../images/profiles/pics/Faysal.jpg"
-import Mahfuz from "../../images/profiles/pics/Mahfuz.jpg"
-import Nova from "../../images/profiles/pics/Nova.jpg"
-import Ayan from "../../images/profiles/pics/Ayan .jpg"
-import SURJYA from "../../images/profiles/pics/SURJYA BHOWMICK.jpg"
-import himel from "../../images/profiles/pics/Hmu - Panda Vai.jpg"
-import privan from "../../images/profiles/pics/Tahmim Ahmed.jpg"
-import Shohely from "../../images/profiles/pics/Shohely Islam.jpg"
+
+
+
+let img1 = "https://res.cloudinary.com/dwj5oqpqz/image/upload/v1731670870/memory%20vault/pics/xqhgyihmetsp7is7jm9h.jpg"
+let img2 = "https://res.cloudinary.com/dwj5oqpqz/image/upload/v1731670868/memory%20vault/pics/z3j6w5quu9jc4hupw1qh.jpg"
+let img3 = "https://res.cloudinary.com/dwj5oqpqz/image/upload/v1731670867/memory%20vault/pics/gxtp6m9t5tyxbsbau1oa.jpg"
+let img4 = "https://res.cloudinary.com/dwj5oqpqz/image/upload/v1731670866/memory%20vault/pics/ewh3hy2v8mowseqopihm.jpg"
+let img5 = "https://res.cloudinary.com/dwj5oqpqz/image/upload/v1731670866/memory%20vault/pics/xbt2piopycdcetzveszf.jpg"
+let img6 = "https://res.cloudinary.com/dwj5oqpqz/image/upload/v1731670866/memory%20vault/pics/icok6esy6smdcke2dndl.jpg"
+let img7 = "https://res.cloudinary.com/dwj5oqpqz/image/upload/v1731670865/memory%20vault/pics/yk9yjiyhzzfzgs7vh6kv.jpg"
+let img8 = "https://res.cloudinary.com/dwj5oqpqz/image/upload/v1731670865/memory%20vault/pics/a226rx9gmr9mbebehglz.jpg"
+let img9 = "https://res.cloudinary.com/dwj5oqpqz/image/upload/v1731670864/memory%20vault/pics/chgcn1fa0b1ktvc3ghws.jpg"
+let img10 = "https://res.cloudinary.com/dwj5oqpqz/image/upload/v1731670863/memory%20vault/pics/basiwx8isskm6ixbmmbr.jpg"
+let img11 = "https://res.cloudinary.com/dwj5oqpqz/image/upload/v1731670863/memory%20vault/pics/lcnbqxjgzeqhbygvcs36.jpg"
+
+
 
 const friends = [
-  { id: 2, name: 'Privan', email: 'nurtahmimahmed@gmail.com', phone: '01855612703', bio: "Look deep into nature, and then you will understand everything better. Doesn't matter who it is? Or what it is?"    , profileImage: privan },
-  { id: 4, name: 'Masudul Alam', email: 'masudulalam972@gmail.com', phone: '01876039841', bio: "playing games doesn't only relief the pressure but also it makes us happy ", profileImage: masud },
-  { id: 1, name: 'Ayan Nandy Nirjon', email: 'johndoe@example.com', phone: '123-456-7890', bio: "Fortes Fortuna Adiuvat", profileImage:  Ayan},
-  { id: 6, name: 'T M Shahed Rumi', email: 'shahedrumi98@gmail.com', phone: '01580849247', bio: "Following my heart wherever it leads.", profileImage:  rumi},
-  { id: 7, name: 'MD.FAYSAL AHMED', email: 'ahmed15-6195@s.diu.edu.bd', phone: '01533342443', bio: "", profileImage:  Faysal},
-  { id: 3, name: 'Nova', email: 'tasnianaima@gmail.com', phone: '01709226361', bio: "", profileImage:  Nova},
-  { id: 5, name: 'SM. Asif Arafat Himel', email: 'kft776@gmail.com', phone: '01797228898', bio: "Some need words to feel aliveI need only a melody to unlock the poetry within me...", profileImage: himel },
-  { id: 8, name: 'Shohely Islam', email: 'shohelyislamsuchi@gmail.com', phone: '01892301044', bio: "", profileImage:  Shohely},
-  { id: 9, name: 'Arhab Jahin', email: 'arhabjahin.b@gmail.com', phone: '01911308923', bio: "", profileImage:  jahin},
-  { id: 10, name: 'Surjya Bhowmick', email: 'bhowmickneeds@gmail.com', phone: '01531542940', bio: "Expect low, Be happy. ", profileImage: SURJYA },
-  { id: 101, name: 'Mahfuzzz', email: 'rrahmanmahfuz007@gmail.com', phone: '01997750844', bio: "আমার কি দোষ, খালি পাপ জমাই 🐸", profileImage: Mahfuz },
+  { id: 2, name: 'Privan', email: 'nurtahmimahmed@gmail.com', phone: '01855612703', bio: "Look deep into nature, and then you will understand everything better. Doesn't matter who it is? Or what it is?"    , profileImage: img5 },
+  { id: 4, name: 'Masudul Alam', email: 'masudulalam972@gmail.com', phone: '01876039841', bio: "playing games doesn't only relief the pressure but also it makes us happy ", profileImage: img7 },
+  { id: 1, name: 'Ayan Nandy Nirjon', email: 'johndoe@example.com', phone: '123-456-7890', bio: "Fortes Fortuna Adiuvat", profileImage:  img1},
+  { id: 6, name: 'T M Shahed Rumi', email: 'shahedrumi98@gmail.com', phone: '01580849247', bio: "Following my heart wherever it leads.", profileImage:  img8},
+  { id: 7, name: 'MD.FAYSAL AHMED', email: 'ahmed15-6195@s.diu.edu.bd', phone: '01533342443', bio: "", profileImage:  img3},
+  { id: 3, name: 'Nova', email: 'tasnianaima@gmail.com', phone: '01709226361', bio: "", profileImage:  img9},
+  { id: 5, name: 'SM. Asif Arafat Himel', email: 'kft776@gmail.com', phone: '01797228898', bio: "Some need words to feel aliveI need only a melody to unlock the poetry within me...", profileImage: img10 },
+  { id: 8, name: 'Shohely Islam', email: 'shohelyislamsuchi@gmail.com', phone: '01892301044', bio: "", profileImage:  img2},
+  { id: 9, name: 'Arhab Jahin', email: 'arhabjahin.b@gmail.com', phone: '01911308923', bio: "", profileImage:  img11},
+  { id: 10, name: 'Surjya Bhowmick', email: 'bhowmickneeds@gmail.com', phone: '01531542940', bio: "Expect low, Be happy. ", profileImage: img4 },
+  { id: 11, name: 'Mahfuzzz', email: 'rrahmanmahfuz007@gmail.com', phone: '01997750844', bio: "আমার কি দোষ, খালি পাপ জমাই 🐸", profileImage: img6 },
 ];
 
 function Friends() {

@@ -1,21 +1,22 @@
 import React, { useState, useEffect } from "react";
 
-import image1 from "../../images/all images/IMG20230930145504.jpg";
-import image2 from "../../images/all images/IMG_20241009_175939_463.jpg";
-import image3 from "../../images/all images/IMG20240324184314.jpg";
-import image4 from "../../images/all images/IMG20241008004506.jpg";
-import image5 from "../../images/all images/IMG20241008182723.jpg";
-import image6 from "../../images/all images/IMG20240129111346.jpg";
-import image7 from "../../images/all images/IMG_20230828_163217_315.jpg";
-import image8 from "../../images/all images/IMG20240324184237.jpg";
-import image9 from "../../images/all images/IMG_20241009_180030_400.jpg";
-import image10 from "../../images/all images/IMG_20241009_180025_553.jpg";
-import image11 from "../../images/all images/IMG_20241009_175945_747.jpg";
-import image12 from "../../images/all images/IMG20241008182723.jpg";
-import image13 from "../../images/all images/IMG20241008115338.jpg";
-import image14 from "../../images/all images/group.jpg";
+let img1 = "https://res.cloudinary.com/dwj5oqpqz/image/upload/v1730651635/memory%20vault/x8ghinunbmhgjibcz99b.jpg"
+let img2 = "https://res.cloudinary.com/dwj5oqpqz/image/upload/v1730651635/memory%20vault/dynznfpdfuxpxpjrcrsm.jpg"
+let img3 = "https://res.cloudinary.com/dwj5oqpqz/image/upload/v1730651635/memory%20vault/zfl9dcu3mvqelxzumfwg.jpg"
+let img4 = "https://res.cloudinary.com/dwj5oqpqz/image/upload/v1730651632/memory%20vault/dmfjlzq3uwuibglfl1vk.jpg"
+let img5 = "https://res.cloudinary.com/dwj5oqpqz/image/upload/v1730651627/memory%20vault/j5x8qmswawys4sccgkvm.jpg"
+let img6 = "https://res.cloudinary.com/dwj5oqpqz/image/upload/v1730651626/memory%20vault/zabzlzktlggob9km4b0t.jpg"
+let img7 = "https://res.cloudinary.com/dwj5oqpqz/image/upload/v1730651626/memory%20vault/nejpknpdbdjiq4kexg5v.jpg"
+let img8 = "https://res.cloudinary.com/dwj5oqpqz/image/upload/v1730651599/memory%20vault/mxjrkogesxecbei0f5ye.jpg"
+let img9 = "https://res.cloudinary.com/dwj5oqpqz/image/upload/v1730651616/memory%20vault/sy20wn1xhsfrdqtduj9x.jpg"
+let img10 = "https://res.cloudinary.com/dwj5oqpqz/image/upload/v1730651615/memory%20vault/r2ejfnhbabbwlqmgiq3c.jpg"
+let img11 = "https://res.cloudinary.com/dwj5oqpqz/image/upload/v1730651598/memory%20vault/dencxp2g84jhac62bpnh.jpg"
+let img12 = "https://res.cloudinary.com/dwj5oqpqz/image/upload/v1730651598/memory%20vault/lbkvyxjrbkz2zmd2cmn2.jpg"
+let img13 = "https://res.cloudinary.com/dwj5oqpqz/image/upload/v1730651597/memory%20vault/lx3kwrk0nzcagsjcf665.jpg"
+let img14 = "https://res.cloudinary.com/dwj5oqpqz/image/upload/v1730651593/memory%20vault/xlsd0uhckxic6stmrel7.jpg"
 
-const allImages = [image1, image2, image3, image4, image5, image6, image7, image8, image9, image10, image11, image12, image13, image14];
+
+const allImages = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12, img13, img14];
 
 const hexagonStyle = {
   width: "90px",
@@ -147,28 +148,28 @@ const BannerImages = () => {
     <section className="py-10">
       <div className="max-w-4xl mx-auto">
         <div className="flex justify-center gap-2 mb-2">
-          <HexagonImage src={image1} style={style} index={0} imagesLoaded={imagesLoaded} />
-          <HexagonImage src={image2} style={style} index={1} imagesLoaded={imagesLoaded} />
+          <HexagonImage src={img1 } style={style} index={0} imagesLoaded={imagesLoaded} />
+          <HexagonImage src={img2} style={style} index={1} imagesLoaded={imagesLoaded} />
         </div>
         <div className="flex justify-center gap-2 -mt-5 sm:-mt-10">
-          <HexagonImage src={image3} style={style} index={2} imagesLoaded={imagesLoaded} />
-          <HexagonImage src={image4} style={style} index={3} imagesLoaded={imagesLoaded} />
-          <HexagonImage src={image5} style={style} index={4} imagesLoaded={imagesLoaded} />
+          <HexagonImage src={img3} style={style} index={2} imagesLoaded={imagesLoaded} />
+          <HexagonImage src={img4} style={style} index={3} imagesLoaded={imagesLoaded} />
+          <HexagonImage src={img5} style={style} index={4} imagesLoaded={imagesLoaded} />
         </div>
         <div className="flex justify-center gap-2 -mt-5 sm:-mt-10">
-          <HexagonImage src={image6} style={style} index={5} imagesLoaded={imagesLoaded} />
-          <HexagonImage src={image7} style={style} index={6} imagesLoaded={imagesLoaded} />
-          <HexagonImage src={image8} style={style} index={7} imagesLoaded={imagesLoaded} />
-          <HexagonImage src={image9} style={style} index={8} imagesLoaded={imagesLoaded} />
+          <HexagonImage src={img6} style={style} index={5} imagesLoaded={imagesLoaded} />
+          <HexagonImage src={img7} style={style} index={6} imagesLoaded={imagesLoaded} />
+          <HexagonImage src={img8} style={style} index={7} imagesLoaded={imagesLoaded} />
+          <HexagonImage src={img9} style={style} index={8} imagesLoaded={imagesLoaded} />
         </div>
         <div className="flex justify-center gap-2 -mt-5 sm:-mt-10">
-          <HexagonImage src={image10} style={style} index={9} imagesLoaded={imagesLoaded} />
-          <HexagonImage src={image11} style={style} index={10} imagesLoaded={imagesLoaded} />
-          <HexagonImage src={image12} style={style} index={11} imagesLoaded={imagesLoaded} />
+          <HexagonImage src={img10} style={style} index={9} imagesLoaded={imagesLoaded} />
+          <HexagonImage src={img11} style={style} index={10} imagesLoaded={imagesLoaded} />
+          <HexagonImage src={img12} style={style} index={11} imagesLoaded={imagesLoaded} />
         </div>
         <div className="flex justify-center gap-2 -mt-5 sm:-mt-10">
-          <HexagonImage src={image13} style={style} index={12} imagesLoaded={imagesLoaded} />
-          <HexagonImage src={image14} style={style} index={13} imagesLoaded={imagesLoaded} />
+          <HexagonImage src={img13} style={style} index={12} imagesLoaded={imagesLoaded} />
+          <HexagonImage src={img14} style={style} index={13} imagesLoaded={imagesLoaded} />
         </div>
       </div>
     </section>

@@ -6,17 +6,17 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 // Import the profile images
-import masud from "../../images/profiles/pics/Masud.jpg";
-import rumi from "../../images/profiles/pics/rumi.jpg";
-import jahin from "../../images/profiles/pics/Arhab Jahin.jpg";
-import Faysal from "../../images/profiles/pics/Faysal.jpg";
-import Mahfuz from "../../images/profiles/pics/Mahfuz.jpg";
-import Nova from "../../images/profiles/pics/Nova.jpg";
-import Ayan from "../../images/profiles/pics/Ayan .jpg";
-import SURJYA from "../../images/profiles/pics/SURJYA BHOWMICK.jpg";
-import himel from "../../images/profiles/pics/Hmu - Panda Vai.jpg";
-import privan from "../../images/profiles/pics/Tahmim Ahmed.jpg";
-import Shohely from "../../images/profiles/pics/Shohely Islam.jpg";
+let Ayan = "https://res.cloudinary.com/dwj5oqpqz/image/upload/v1731670870/memory%20vault/pics/xqhgyihmetsp7is7jm9h.jpg"
+let Shohely = "https://res.cloudinary.com/dwj5oqpqz/image/upload/v1731670868/memory%20vault/pics/z3j6w5quu9jc4hupw1qh.jpg"
+let faysal = "https://res.cloudinary.com/dwj5oqpqz/image/upload/v1731670867/memory%20vault/pics/gxtp6m9t5tyxbsbau1oa.jpg"
+let Surjya = "https://res.cloudinary.com/dwj5oqpqz/image/upload/v1731670866/memory%20vault/pics/ewh3hy2v8mowseqopihm.jpg"
+let privan = "https://res.cloudinary.com/dwj5oqpqz/image/upload/v1731670866/memory%20vault/pics/xbt2piopycdcetzveszf.jpg"
+let Mahfuzzz = "https://res.cloudinary.com/dwj5oqpqz/image/upload/v1731670866/memory%20vault/pics/icok6esy6smdcke2dndl.jpg"
+let masud = "https://res.cloudinary.com/dwj5oqpqz/image/upload/v1731670865/memory%20vault/pics/yk9yjiyhzzfzgs7vh6kv.jpg"
+let Rumi = "https://res.cloudinary.com/dwj5oqpqz/image/upload/v1731670865/memory%20vault/pics/a226rx9gmr9mbebehglz.jpg"
+let Nova = "https://res.cloudinary.com/dwj5oqpqz/image/upload/v1731670864/memory%20vault/pics/chgcn1fa0b1ktvc3ghws.jpg"
+let Himel = "https://res.cloudinary.com/dwj5oqpqz/image/upload/v1731670863/memory%20vault/pics/basiwx8isskm6ixbmmbr.jpg"
+let Jahin = "https://res.cloudinary.com/dwj5oqpqz/image/upload/v1731670863/memory%20vault/pics/lcnbqxjgzeqhbygvcs36.jpg"
 
 function Profile() {
   const [currentUser, setCurrentUser] = useState(null);
@@ -28,13 +28,13 @@ function Profile() {
     { email: 'nirjon853@gmail.com', password: '222-15-6149', name: 'Ayan Nandy Nirjon', image: Ayan, phone: '123-456-7890' },
     { email: 'nurtahmimahmed@gmail.com', password: '222-15-6217', name: 'Privan', image: privan, phone: '01855612703' },
     { email: 'tasnianaima@gmail.com', password: '222-15-6313', name: 'Nova', image: Nova, phone: '01709226361' },
-    { email: 'kft776@gmail.com', password: '222-15-6178', name: 'SM. Asif Arafat Himel', image: himel, phone: '01797228898' },
-    { email: 'rrahmanmahfuz007@gmail.com', password: '222-15-6522', name: 'Mahfuz', image: Mahfuz, phone: '01897063745' },
-    { email: 'shahedrumi98@gmail.com', password: '222-15-6485', name: 'T M Shahed Rumi', image: rumi, phone: '01580849247' },
-    { email: 'ahmed15-6195@s.diu.edu.bd', password: '222-15-6195', name: 'MD.FAYSAL AHMED', image: Faysal, phone: '01533342443' },
+    { email: 'kft776@gmail.com', password: '222-15-6178', name: 'SM. Asif Arafat Himel', image: Himel, phone: '01797228898' },
+    { email: 'rrahmanmahfuz007@gmail.com', password: '222-15-6522', name: 'Mahfuz', image: Mahfuzzz, phone: '01897063745' },
+    { email: 'shahedrumi98@gmail.com', password: '222-15-6485', name: 'T M Shahed Rumi', image: Rumi, phone: '01580849247' },
+    { email: 'ahmed15-6195@s.diu.edu.bd', password: '222-15-6195', name: 'MD.FAYSAL AHMED', image: faysal, phone: '01533342443' },
     { email: 'shohelyislamsuchi@gmail.com', password: '222-15-6493', name: 'Shohely Islam', image: Shohely, phone: '01892301044' },
-    { email: 'arhabjahin.b@gmail.com', password: '222-15-6452', name: 'Arhab Jahin', image: jahin, phone: '01911308923' },
-    { email: 'bhowmickneeds@gmail.com', password: '222-15-6382', name: 'Surjya Bhowmick', image: SURJYA, phone: '01531542940' },
+    { email: 'arhabjahin.b@gmail.com', password: '222-15-6452', name: 'Arhab Jahin', image: Jahin, phone: '01911308923' },
+    { email: 'bhowmickneeds@gmail.com', password: '222-15-6382', name: 'Surjya Bhowmick', image: Surjya, phone: '01531542940' },
   ];
 
   useEffect(() => {

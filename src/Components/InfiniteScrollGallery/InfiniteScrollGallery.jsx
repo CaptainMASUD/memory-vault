@@ -1,15 +1,15 @@
 import { motion, useAnimation } from 'framer-motion';
 import { useEffect } from 'react';
-import img1 from "../../images/all images/IMG20230930145504.jpg"
-import img2 from "../../images/all images/IMG_20241009_175939_463.jpg"
-import img3 from "../../images/all images/IMG20240324184314.jpg"
-import img4 from "../../images/all images/IMG20241008004506.jpg"
-import img5 from "../../images/all images/IMG20241008182723.jpg"
-import img6 from "../../images/all images/IMG20240129111346.jpg"
-import img7 from "../../images/all images/IMG_20230828_163217_315.jpg"
-import img8 from "../../images/all images/IMG20240324184237.jpg"
-import img9 from "../../images/all images/IMG_20241009_180030_400.jpg"
-import img10 from "../../images/all images/IMG_20241009_180025_553.jpg"
+let img1 = "https://res.cloudinary.com/dwj5oqpqz/image/upload/v1730651635/memory%20vault/x8ghinunbmhgjibcz99b.jpg"
+let img2 = "https://res.cloudinary.com/dwj5oqpqz/image/upload/v1730651635/memory%20vault/dynznfpdfuxpxpjrcrsm.jpg"
+let img3 = "https://res.cloudinary.com/dwj5oqpqz/image/upload/v1730651635/memory%20vault/zfl9dcu3mvqelxzumfwg.jpg"
+let img4 = "https://res.cloudinary.com/dwj5oqpqz/image/upload/v1730651632/memory%20vault/dmfjlzq3uwuibglfl1vk.jpg"
+let img5 = "https://res.cloudinary.com/dwj5oqpqz/image/upload/v1730651627/memory%20vault/j5x8qmswawys4sccgkvm.jpg"
+let img6 = "https://res.cloudinary.com/dwj5oqpqz/image/upload/v1730651626/memory%20vault/zabzlzktlggob9km4b0t.jpg"
+let img7 = "https://res.cloudinary.com/dwj5oqpqz/image/upload/v1730651626/memory%20vault/nejpknpdbdjiq4kexg5v.jpg"
+let img8 = "https://res.cloudinary.com/dwj5oqpqz/image/upload/v1730651599/memory%20vault/mxjrkogesxecbei0f5ye.jpg"
+let img9 = "https://res.cloudinary.com/dwj5oqpqz/image/upload/v1730651616/memory%20vault/sy20wn1xhsfrdqtduj9x.jpg"
+let img10 = "https://res.cloudinary.com/dwj5oqpqz/image/upload/v1730651615/memory%20vault/r2ejfnhbabbwlqmgiq3c.jpg"
 
 const images = [
   img1,
