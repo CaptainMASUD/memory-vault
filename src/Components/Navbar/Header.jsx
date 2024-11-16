@@ -1,11 +1,10 @@
-'use client'
+import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { FaUser, FaSignOutAlt, FaTimes, FaUserFriends } from 'react-icons/fa';
+import { useNavigate, Link } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-import React, { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
-import { FaUser, FaSignOutAlt, FaTimes, FaUserFriends } from 'react-icons/fa'
-import { useNavigate, Link } from 'react-router-dom'
-import { ToastContainer, toast } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
 let Ayan = "https://res.cloudinary.com/dwj5oqpqz/image/upload/v1731670870/memory%20vault/pics/xqhgyihmetsp7is7jm9h.jpg"
 let Shohely = "https://res.cloudinary.com/dwj5oqpqz/image/upload/v1731670868/memory%20vault/pics/z3j6w5quu9jc4hupw1qh.jpg"
 let faysal = "https://res.cloudinary.com/dwj5oqpqz/image/upload/v1731670867/memory%20vault/pics/gxtp6m9t5tyxbsbau1oa.jpg"
@@ -19,8 +18,8 @@ let Himel = "https://res.cloudinary.com/dwj5oqpqz/image/upload/v1731670863/memor
 let Jahin = "https://res.cloudinary.com/dwj5oqpqz/image/upload/v1731670863/memory%20vault/pics/lcnbqxjgzeqhbygvcs36.jpg"
 
 function Header() {
-  const [isOpen, setIsOpen] = useState(false)
-  const [currentUser, setCurrentUser] = useState(null)
+  const [isOpen, setIsOpen] = useState(false);
+  const [currentUser, setCurrentUser] = useState(null);
 
   const credentials = [
     { email: 'masudulalam972@gmail.com', password: '222-15-6072', profileImage: masud },
@@ -34,33 +33,37 @@ function Header() {
     { email: 'shohelyislamsuchi@gmail.com', password: '222-15-6493', profileImage: Shohely },
     { email: 'arhabjahin.b@gmail.com', password: '222-15-6452', profileImage: Jahin },
     { email: 'bhowmickneeds@gmail.com', password: '222-15-6382', profileImage: Surjya },
-  ]
+  ];
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const storedEmail = localStorage.getItem('email')
-    const storedPassword = localStorage.getItem('password')
+    try {
+      const storedEmail = localStorage.getItem('email');
+      const storedPassword = localStorage.getItem('password');
 
-    const user = credentials.find(
-      (cred) => cred.email === storedEmail && cred.password === storedPassword
-    )
+      const user = credentials.find(
+        (cred) => cred.email === storedEmail && cred.password === storedPassword
+      );
 
-    if (user) {
-      setCurrentUser(user)
-      setIsOpen(true) // Automatically open sidebar if user is found
+      if (user) {
+        setCurrentUser(user);
+        setIsOpen(true);
+      }
+    } catch (error) {
+      console.error("Error accessing localStorage: ", error);
     }
-  }, [])
+  }, []);
 
   const toggleSidebar = () => {
-    setIsOpen(!isOpen)
-  }
+    setIsOpen(!isOpen);
+  };
 
   const handleLogout = () => {
-    localStorage.removeItem('email')
-    localStorage.removeItem('password')
-    setCurrentUser(null)
-    setIsOpen(false)
+    localStorage.removeItem('email');
+    localStorage.removeItem('password');
+    setCurrentUser(null);
+    setIsOpen(false);
 
     toast.success('Logged out successfully', {
       position: "top-right",
@@ -69,24 +72,27 @@ function Header() {
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
-    })
+    });
 
-    // Reload the page after the toast message displays for 3 seconds
-    window.location.reload()
-  
-  }
+    setTimeout(() => navigate('/login'), 3000);
+  };
 
+  const routes = [
+    { path: '/', icon: FaUser, label: 'Home' },
+    { path: '/profile', icon: FaUser, label: 'Profile' },
+    { path: '/friends', icon: FaUserFriends, label: 'Friends' },
+  ];
 
   return (
     <div className="relative">
       <ToastContainer />
 
-      {/* Only render Sidebar if a current user exists */}
       {currentUser ? (
         <>
           {/* Profile Icon */}
-          <button 
-            onClick={toggleSidebar} 
+          <button
+            onClick={toggleSidebar}
+            aria-label="Toggle Sidebar"
             className="fixed top-4 left-4 z-50 p-[3px] bg-purple-600 rounded-full text-white hover:bg-purple-700 transition-colors duration-300"
           >
             <img
@@ -105,7 +111,7 @@ function Header() {
           >
             <div className="h-full flex flex-col">
               <div className="flex justify-end p-4">
-                <button onClick={toggleSidebar} className="text-gray-300 hover:text-white transition-colors duration-300">
+                <button onClick={toggleSidebar} aria-label="Close Sidebar" className="text-gray-300 hover:text-white transition-colors duration-300">
                   <FaTimes size={24} />
                 </button>
               </div>
@@ -120,27 +126,16 @@ function Header() {
               </div>
 
               <nav className="flex-grow p-6 space-y-4">
-                <Link 
-                  to="/" 
-                  className="flex items-center space-x-3 py-2 px-4 rounded-lg bg-purple-800/50 hover:bg-purple-700/50 transition-colors duration-300"
-                >
-                  <FaUser className="text-purple-300" />
-                  <span>Home</span>
-                </Link>
-                <Link 
-                  to="/profile" 
-                  className="flex items-center space-x-3 py-2 px-4 rounded-lg bg-purple-800/50 hover:bg-purple-700/50 transition-colors duration-300"
-                >
-                  <FaUser className="text-purple-300" />
-                  <span>Profile</span>
-                </Link>
-                <Link 
-                  to="/friends" 
-                  className="flex items-center space-x-3 py-2 px-4 rounded-lg bg-purple-800/50 hover:bg-purple-700/50 transition-colors duration-300"
-                >
-                  <FaUserFriends className="text-purple-300" />
-                  <span>Friends</span>
-                </Link>
+                {routes.map(({ path, icon: Icon, label }) => (
+                  <Link
+                    key={path}
+                    to={path}
+                    className="flex items-center space-x-3 py-2 px-4 rounded-lg bg-purple-800/50 hover:bg-purple-700/50 transition-colors duration-300"
+                  >
+                    <Icon className="text-purple-300" />
+                    <span>{label}</span>
+                  </Link>
+                ))}
                 <button
                   onClick={handleLogout}
                   className="flex items-center space-x-3 py-2 px-4 rounded-lg bg-purple-800/50 hover:bg-purple-700/50 transition-colors duration-300"
@@ -152,13 +147,9 @@ function Header() {
             </div>
           </motion.div>
         </>
-      ) : (
-        <></>
-        // Display nothing if no user is found
-        // <p className="text-center mt-4 text-gray-500">Please log in to see the sidebar menu.</p>
-      )}
+      ) : null}
     </div>
-  )
+  );
 }
 
-export default Header
+export default Header;
